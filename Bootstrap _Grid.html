@@ -1,0 +1,218 @@
+<html>
+<head>
+  <title>Lab03 :: การใช้งาน Bootstrap  grid</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+    .row.content {height: 1500px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #FFFF99;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #FFFF99;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height: auto;} 
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav">
+ <img class="left" src="http://1.bp.blogspot.com/-_O5Bqwrwx0k/UQnczJygiBI/AAAAAAAADm0/mu9sHJ9UhDM/s1600/guns_n_roses.png" img-circle" height="280" width="300" alt="Avatar">
+
+<br>
+<br>
+      <h4>Tanapat Blog</h4>
+	<h5>58160393</h5>
+      <ul class="nav nav-pills nav-stacked">
+        <li><a href="lab03.html">Home</a></li>
+        <li class="active"><a href="Bootstrap%20_Grid.html">Bootstrap :: การใช้งาน Grid</a></li>
+        <li><a href="Bootstrap_Form.html">Bootstrap :: การใช้งาน form</a></li>
+              </ul><br>
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search Blog..">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button">
+            <span class="glyphicon glyphicon-search"></span>
+          </button>
+        </span>
+      </div>
+    </div>
+
+    <div class="col-sm-9">
+      <h4><small>RECENT POSTS</small></h4>
+      <hr>
+      <h2>การใช้งาน Grid System ใน Bootstrap </h2>
+      <h5><span class="glyphicon glyphicon-time"></span> Post by Tanapat, Feb 07, 2017.</h5>
+      <h5><span class="label label-success">Bootstrap</span> <span class="label label-success">grid</span></h5><br>
+            <p></p><h3>Grid System ใน Bootstrap </h3>
+             <h4>Grid System คืออะไร ?</h4>
+<p>    อย่างที่บอกไปนะครับว่า Bootstrap  มันก็คือ Front-end Framework ตัวหนึ่ง
+ ที่จะช่วยให้การพัฒนาเว็บไซต์ของเราเร็วขึ้น ง่ายขึ้น และเป็นระบบมากขึ้น ซึ่งคำว่า Bootstrap
+ นี้ในภาษาอังกฤษมันมักจะหมายถึง “สิ่งที่ช่วยทำให้ง่ายขึ้น” หรือ “สิ่งที่ทำได้ด้วยตัวของมันเอง”
+ ซึ่งในที่นี้น่าจะหมายความว่า ถ้าเราใช้ Bootstrap แล้ว เราก็ไม่จำเป็นต้องไปหาอะไรมาเพิ่มอีก </p>
+
+<h3> Bootstrap ให้อะไรมาบ้าง? </h3>
+<h4> สิ่งที่ Bootstrap ให้มา มี 4 อย่าง ดังนี้ครับ </h4>
+ <p> Scaffolding
+grid system จำนวน 12 คอลัมน์ สามารถเลือกใช้ได้ทั้งแบบ fixed และแบบ fluid
+<br>
+Base CSS
+style sheets สำหรับ html elements พื้นฐาน เช่น typography, tables, forms และ images
+<br>
+Components
+style sheets สำหรับสิ่งที่เราต้องใช้บ่อยๆ ไม่ว่าจะเป็น navigation, breadcrumbs รวมไปถึง pagination
+<br>
+JavaScript
+jQuery plugins ต่างๆ ไม่ว่าจะเป็น modal, carousel หรือ tooltip
+<br>
+</p>
+<h3> Grid System ของ Bootstrap </h3>
+<p> ปกติแล้ว grid system ที่ Bootstrap ให้มาจะเป็นแบบ 12 คอลัมน์ ครับ 
+ซึ่งจะใช้ร่วมกับ container ที่เราเพิ่งสร้างขึ้นมานั่นเอง โดยแต่ละคอลัมน์จะมีความกว้างเท่ากันคือ 60px 
+และจะอยู่ห่างกัน 20px 
+จะได้ว่า (60*12) + (20*11) = 940 หรือความกว้างของ container เรานั่นเองครับ
+<br>
+<br>
+การจะสร้าง layouts ด้วย Bootstrap ให้เราสร้าง html element ที่มี class “row” 
+ขึ้นมาก่อนครับ ทีนี้เราจะสามารถสร้างแต่ละคอลัมน์ขึ้นมาได้ด้วยการใส่ html element
+ ที่มี class “span*” เข้าไปข้างใน โดย * ที่อยู่ข้างหลัง span
+ นั้นจะเป็นตัวเลขที่จะระบุว่าเราต้องการให้คอลัมน์นี้ “กาง” แค่ไหน สมมติว่าเราจะสร้าง layouts แบบ 12 คอลัมน์
+ ให้เราใส่โค้ดด้านล่างนี้เข้าไปที่ container ของเราครับ
+<br>
+<h4> 12 คอลัมน์ </h4>
+<img src="images/01.jpg" width="600" height="300">
+<br>
+จากโค้ดด้านบน เราใส่ html elements ที่มี class ชื่อ “span1? รวมทั้งหมด 12 elements ด้วยกัน เมื่อพรีวิวดู เราจะพบว่า container ของเราถูกแบ่งออกเป็นคอลัมน์ต่างๆ 
+ที่มีความกว้างเท่ากันทั้งหมดจำนวน 12 คอลัมน์ ด้วยกัน
+<h4> 2 คอลัมน์ </h4>
+หากเราต้องการแค่ 2 คอลัมน์ โดยเราอยากให้คอลัมน์ทางซ้ายใหญ่กว่าทางขวา เราก็เขียนแบบนี้ได้ครับ
+<img src="images/02.jpg" width="550" height="200">
+<br>
+จะเห็นว่าความกว้างของทั้ง 2 คอลัมน์ นี้จะเป็น 8 + 4 = 12 พอดี สาเหตุที่เราต้องกำหนดความกว้างให้รวมกันเท่ากับ 12 ก็เพราะว่า grid system ของ bootstrap นั้นเป็นแบบ 12 คอลัมน์ ครับ
+ นั่นหมายความว่าทั้ง 2 คอลัมน์นี้จะกางเต็ม container พอดี
+<h4>Offsetting columns</h4>
+ในบางครั้ง เราอาจต้องการเพิ่มระยะห่างระหว่างคอลัมน์ เราสามารถทำได้ด้วยการเพิ่ม class ที่ชื่อ “offset*” เข้าไป โดย 
+* นั้นหมายถึงจำนวนของคอลัมน์ที่จะกลายมาเป็นระยะห่าง ลองดูตัวอย่างนี้ครับ <br>
+<img src="images/03.jpg" width="500" height="150">
+<br>
+เมื่อพรีวิวดู เราจะพบว่าทั้ง 2 คอลัมน์นี้ยังคงกางเต็ม container อยู่ เนื่องจาก 2 + 4 + 6 = 12 ครับ
+<h4> Nesting columns </h4>
+นอกจากนั้น เรายังสามารถสร้างคอลัมน์ซ้อนภายในคอลัมน์ได้อีกด้วยนะครับ ลองดูตัวอย่างนี้
+<img src="images/04.jpg" width="500" height="300">
+<br>
+จะเห็นว่าเราได้สร้างคอลัมน์ “span2" กับ “span6" ซ้อนข้างในคอลัมน์ “span8" ซึ่งคอลัมน์ที่อยู่ภายในทั้ง 2 คอลัมน์ 
+จะกางเต็มคอลัมน์ข้างนอกพอดีเนื่องจาก 2 + 6 = 8
+</p>
+<p> หากยังมองไม่เห็นภาพเกี่ยวกับการใช้งาน grid system ของ Bootstrap ลองดูภาพนี้ครับ 
+<img src="images/05.jpg" width="500" height="300">
+</p>
+<h3> Workshop – Base CSS ของ Bootstrap </h3>
+<p>
+หลังจากที่เราได้แบ่งหน้าเว็บออกเป็นส่วนๆ โดยใช้  grid system แล้ว
+ ทีนี้ก็มาถึงขั้นตอนการนำของต่างๆ ที่ Bootstrap เตรียมไว้มาใช้งานจริงแล้วล่ะครับ สำหรับ Base CSS นั้น จะเป็นการตกแต่งสไตล์ให้กับ html elements พื้นฐาน ไม่ว่าจะเป็น typography, tables, forms, buttons, icons และ images การเรียกใช้นั้นเรียกได้ว่าง่ายเอามากๆ
+ ลองมาดูตัวอย่างการใช้ table ใน Bootstrap กันครับ
+<br>
+หากเราต้องการจะใช้สไตล์สำหรับ <table> ที่ Bootstrap เตรียมไว้ให้ ให้เราเพิ่ม class ไว้ที่ “table” ครับ
+<br>
+<img src="images/06.jpg" width="500" height="600">
+<br>
+<br>
+<img src="images/07.jpg" width="500" height="130">
+<br>
+<h4>หากเรายังไม่พอใจสไตล์แบบ default ที่ Bootstrap ให้มา เราสามารถปรับแต่งเพิ่มเติมได้ด้วยการเพิ่ม optional classes ต่อเข้าไปที่ table ดังนี้ครับ </h4>
+
+<h4> .table-striped </h4>
+ทำให้สีพื้นหลังของแต่ละแถวสลับกันไปเรื่อยๆ
+<h4> .table-bordered </h4>
+ใส่ borders และ rounded corners ให้กับ table
+<h4> .table-hover </h4>
+เมื่อ hover ที่ row ไหน จะไฮไลท์สีพื้นหลังที่ row นั้นๆ
+<h4> .table-condensed </h4>
+ลด padding ของแต่ละ cell ลงครึ่งหนึ่ง
+</p>
+
+
+
+
+
+
+
+<center><img src="img/1.jpg"></center>
+
+      
+
+      <h4>Leave a Comment:</h4>
+      <form role="form">
+        <div class="form-group">
+          <textarea class="form-control" rows="3" required=""></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">กดเลยยย ! </button>
+      </form>
+      <br><br>
+      
+      <p><span class="badge">2</span> Comments:</p><br>
+      
+      <div class="row">
+        <div class="col-sm-2 text-center">
+         <img class="left" src="https://pbs.twimg.com/profile_images/581324988445126656/lXCUfAId.png" class="img-circle" height="65" width="65" alt=Tob">
+        </div>
+        <div class="col-sm-10">
+          <h4>Luffy <small>Sep 29, 2015, 9:12 PM</small></h4>
+          <p>มันชั่งมีประโยชน์เหลือเกิน</p>
+          <br>
+        </div>
+        <div class="col-sm-2 text-center">
+          <img class="left" src="http://2.bp.blogspot.com/-E7yJIK7ssn0/Tlewaj6-9dI/AAAAAAAAAEM/d2VPf8GPkeE/s400/CHOPPER01.png_thumb.png" height="65" width="65" alt="Avatar">
+        </div>
+        <div class="col-sm-10">
+          <h4>Chopper <small>Sep 25, 2015, 8:25 PM</small></h4>
+          <p>ขอบคุณที่ได้อ่านอะไรดีๆ ในแกรนไลน์</p>
+          <br>
+          <p><span class="badge">1</span> Comment:</p><br>
+          <div class="row">
+            <div class="col-sm-2 text-center">
+               <img class="left" src="https://pbs.twimg.com/profile_images/582053129006366720/AULq8hbP.png" class="img-circle" height="65" width="65" alt="Avatar">
+            </div>
+            <div class="col-xs-10">
+              <h4>Nami <small>Sep 25, 2015, 8:28 PM</small></h4>
+              <p>ถ้ามีความรู้เราก็สามารถทำเงิน ได้เป็นล้านเบรี !!!</p>
+              <br>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="container-fluid">
+  <p>Footer Text</p>
+</footer>
+
+
+
+</body>
+
+</html>
